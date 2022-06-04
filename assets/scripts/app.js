@@ -1,7 +1,9 @@
 /*const enteredNumber = +userInput.value;*/
 const defaultResult = 0;
 let currentResult = defaultResult;
-let calcLog;
+let calcLog = [];
+
+
 
 function getUserInput () {
     return +userInput.value
@@ -10,7 +12,15 @@ function getUserInput () {
 function calcOutput (prevResult, operator, enteredValue){
     const calculationDescription = `${prevResult}${operator}${enteredValue}`;
     outputResult (currentResult,calculationDescription );
-    calcLog = [enteredValue];
+    let calculationGrouped = {
+        InitialValue: prevResult,
+        OperatorUsed: operator,
+        UserInputValue: enteredValue,
+        Result: currentResult
+    }
+
+    /*    calcLog = [enteredValue];*/ // removed it, cz now we initialized calcLog with []
+    calcLog.push(calculationGrouped);
     console.log(calcLog);
 }
 
